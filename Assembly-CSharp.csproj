@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{C998A488-AA7B-ECDD-58B7-8B29520E3697}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -23,6 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -45,39 +47,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ActionButton.cs" />
-     <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
-     <Compile Include="Assets\Scripts\Database.cs" />
-     <Compile Include="Assets\Scripts\DelayText.cs" />
-     <Compile Include="Assets\Scripts\DisableWindow.cs" />
-     <Compile Include="Assets\Scripts\GameMaster.cs" />
-     <Compile Include="Assets\Scripts\Interactable.cs" />
-     <Compile Include="Assets\Scripts\Interaction.cs" />
-     <Compile Include="Assets\Scripts\Inventory.cs" />
-     <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\MainPortrait.cs" />
-     <Compile Include="Assets\Scripts\TextBoxManager.cs" />
-     <Compile Include="Assets\Scripts\TextClick.cs" />
-     <Compile Include="Assets\Scripts\TextImporter.cs" />
-     <None Include="Assets\Resources\GameData\Items\Turtle\LookyTurtle1.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Closed Door\lookyClosedDoor1.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\lookyTorch1.txt" />
-     <None Include="Assets\Resources\GameData\Items\Candle\lookyCandle2.txt" />
-     <None Include="Assets\Resources\GameData\Item Capabilities.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Wall\lookyWall1.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\lookyTorch3.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\gimmeTorch1.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\lookyTorch2.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Carpet\lookyCarpet1.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\East Exit\lookyEastExit1.txt" />
-     <None Include="Assets\Resources\GameData\Dialogue\Entrance\Open Door\lookyOpenDoor1.txt" />
-     <None Include="Assets\Resources\GameData\Items\Candle\lookyCandle1.txt" />
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\Scripts\ActionButton.cs" />
+    <Compile Include="Assets\Scripts\ActivateTextAtLine.cs" />
+    <Compile Include="Assets\Scripts\Database.cs" />
+    <Compile Include="Assets\Scripts\DelayText.cs" />
+    <Compile Include="Assets\Scripts\DisableWindow.cs" />
+    <Compile Include="Assets\Scripts\GameMaster.cs" />
+    <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Interaction.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\MainPortrait.cs" />
+    <Compile Include="Assets\Scripts\TextBoxManager.cs" />
+    <Compile Include="Assets\Scripts\TextClick.cs" />
+    <Compile Include="Assets\Scripts\TextImporter.cs" />
+    <None Include="Assets\Resources\GameData\Items\Turtle\LookyTurtle1.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Closed Door\lookyClosedDoor1.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\lookyTorch1.txt" />
+    <None Include="Assets\Resources\GameData\Items\Candle\lookyCandle2.txt" />
+    <None Include="Assets\Resources\GameData\Item Capabilities.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Wall\lookyWall1.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\lookyTorch3.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\gimmeTorch1.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Torch\lookyTorch2.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Carpet\lookyCarpet1.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\East Exit\lookyEastExit1.txt" />
+    <None Include="Assets\Resources\GameData\Dialogue\Entrance\Open Door\lookyOpenDoor1.txt" />
+    <None Include="Assets\Images\Ribbon\rubbon.txt" />
+    <None Include="Assets\Resources\GameData\Items\Candle\lookyCandle1.txt" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -87,5 +90,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
