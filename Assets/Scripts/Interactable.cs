@@ -6,11 +6,20 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
 {
     public Interaction[] lookies;
     public Interaction[] insults;
+    public Interaction[] usies;
+    public Interaction[] gimmies;
 
     public bool isItem;
     TextBoxManager theTextBox;    
     Item item;
 
+    public string[] switchExistenceREQ;
+    public string[] switchExistenceFORBID;
+
+    SpriteRenderer sprite;
+    Collider2D coll;
+
+    public bool available;
 
 
     public void OnPointerClick(PointerEventData eventData)
@@ -65,23 +74,34 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     void Gimme()
     {
         Debug.Log("gimme!");
+        PerformInteractionFromPool(gimmies);
     }
 
     void Insult()
     {
         Debug.Log("insult!");
+        PerformInteractionFromPool(insults);
 
     }
 
     void Use()
     {
         Debug.Log("use!");
+        PerformInteractionFromPool(usies);
 
     }
 
 
+    void Awake()
+    {
+        available = true;
+       
+        coll = GetComponent<Collider2D>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
     void Start()
-        {
+    {
             theTextBox = TextBoxManager.instance;
 
             item = GetComponent<Item>();
@@ -94,18 +114,57 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
                 isItem = true;
             }
 
-
-        }
-
-        public Item GetItem()
+        if (!isItem)
         {
-            return item;
+            CheckExistenceValidity();
         }
+    }
 
-        void Update()
+     public Item GetItem()
+     {
+           return item;
+     }
+
+     void Update()
+     {
+        if (!isItem)
         {
-
+            CheckExistenceValidity();
         }
+    }
+
+    void CheckExistenceValidity()
+    {
+        bool canExist = true;
+        foreach (string switchReq in switchExistenceREQ)
+        {
+            if (!GameMaster.GetSwitch(switchReq))
+            {
+                canExist = false;
+            }
+        }
+
+        foreach (string switchForbid in switchExistenceFORBID)
+        {
+            if (GameMaster.GetSwitch(switchForbid))
+            {
+                canExist = false;
+            }
+        }
+
+        if (canExist && !available)
+        {
+            sprite.enabled = true;
+            coll.enabled = true;
+            available = true;
+        }
+        else if (!canExist && available)
+        {
+            sprite.enabled = false;
+            coll.enabled = false;
+            available = false;
+        }
+    }
 
         /*  
         void OnTriggerEnter2D(Collider2D other)

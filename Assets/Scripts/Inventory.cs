@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour {
     public void Start()
     {
         AddItem("Candle");
-        AddItem("Turtle");
+       // AddItem("Turtle");
     }
 
 
