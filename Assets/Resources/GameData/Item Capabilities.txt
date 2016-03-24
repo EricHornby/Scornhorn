@@ -1,0 +1,45 @@
+Items -> [Potential Interactions]
+
+Interaction{
+	SourceRequirement:[List of Actions]
+	useOnPortrait: [boolean]
+	SwitchRequirements: [List of Strings]
+
+	ActivateSwitch: [SwitchName]
+	DeleteSelf: [True/False]  //ONLY RELEVANT FOR ITEM TYPE
+	DeleteItemSource: [True/False] //ONLY RELEVANT FOR ITEM TYPE
+	AddNewItem: [ItemName]
+	MessageID: [String]	
+}
+
+Result{
+		
+}
+
+Activate Switch (permanent boolean)
+Delete Self
+
+
+=========================================================================
+
+UseTexts folder ->
+
+[ItemName]Text[X]
+	ItemName = name of item to be used on thing
+	X = relevant interaction ID
+
+ITEM_INTERACTIONS.txt
+
+[ItemNameX]{
+	SwitchReqs:[List of Switch Names, USE ! for Requirement=False]
+	ItemREQ:[ItemRequired in Inventory, USE ! for Requirement=False]
+
+	SwitchON:[String of Switch to flip ON]
+	SwitchOFF:[String of Switch to flip OFF]
+	ItemGIVE:[String of ITEM to add to inventory]
+	ItemTAKE:[String of ITEM to remove from inventory]	
+}
+
+[ActionNameX]{
+	repeat ^
+}
