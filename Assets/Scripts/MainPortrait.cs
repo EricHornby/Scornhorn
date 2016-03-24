@@ -9,6 +9,13 @@ public class MainPortrait : MonoBehaviour {
     public Image image;
 
     public Sprite[] tippyFaces;
+    /*
+    NEUTRAL = 0
+    SMILE = 1
+    SHOCKED = 2
+    ANGRY = 3
+    SLY = 4
+    */
 
     public void Neutral(string characterName)
     {

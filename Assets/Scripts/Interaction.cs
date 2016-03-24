@@ -29,9 +29,16 @@ public class Interaction
     int cycles;
 
     public bool oneOff; //a "cheat switch", adds a unique named switchA to "switchON" and also adds its to "switchFORBIDDEN", essentially declaring that this interaction can only occur once.
+    bool oneOffCompleted;
 
     public bool GetInteractionValidity()
     {
+        
+        if (oneOffCompleted)
+        {
+            return false;
+        }    
+
         foreach (string switchReq in switchREQUIRED)
         {
             if (!GameMaster.GetSwitch(switchReq))
@@ -85,6 +92,11 @@ public class Interaction
         foreach (string s in itemTAKE)
         {
             Inventory.instance.RemoveItem(s);
+        }
+
+        if (oneOff)
+        {
+            oneOffCompleted = true;
         }
 
         PrintText();

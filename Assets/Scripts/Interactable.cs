@@ -8,10 +8,10 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public Interaction[] insults;
 
     public bool isItem;
-    TextBoxManager theTextBox;
+    TextBoxManager theTextBox;    
+    Item item;
 
-        
-        Item item;
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
