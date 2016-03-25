@@ -9,12 +9,15 @@ public class MainPortrait : MonoBehaviour {
     public Image image;
 
     public Sprite[] tippyFaces;
+    public Sprite[] mallowFaces;
+    public Sprite[] ribbonFaces;
     /*
     NEUTRAL = 0
     SMILE = 1
     SHOCKED = 2
     ANGRY = 3
     SLY = 4
+    UNNERVED = 5
     */
 
     public void Neutral(string characterName)
@@ -22,6 +25,14 @@ public class MainPortrait : MonoBehaviour {
         if (characterName == "T")
         {
             image.sprite = tippyFaces[0];
+        }
+        if (characterName == "M")
+        {
+            image.sprite = mallowFaces[0];
+        }
+        if (characterName == "R")
+        {
+            image.sprite = ribbonFaces[0];
         }
     }
 
@@ -31,6 +42,14 @@ public class MainPortrait : MonoBehaviour {
         {
             image.sprite = tippyFaces[1];
         }
+        if (characterName == "M")
+        {
+            image.sprite = mallowFaces[1];
+        }
+        if (characterName == "R")
+        {
+            image.sprite = ribbonFaces[1];
+        }
     }
 
     public void Shocked(string characterName)
@@ -38,6 +57,14 @@ public class MainPortrait : MonoBehaviour {
         if (characterName == "T")
         {
             image.sprite = tippyFaces[2];
+        }
+        if (characterName == "M")
+        {
+            image.sprite = mallowFaces[2];
+        }
+        if (characterName == "R")
+        {
+            image.sprite = ribbonFaces[2];
         }
     }
 
@@ -47,6 +74,14 @@ public class MainPortrait : MonoBehaviour {
         {
             image.sprite = tippyFaces[3];
         }
+        if (characterName == "M")
+        {
+            image.sprite = mallowFaces[3];
+        }
+        if (characterName == "R")
+        {
+            image.sprite = ribbonFaces[3];
+        }
     }
 
     public void Sly(string characterName)
@@ -54,6 +89,30 @@ public class MainPortrait : MonoBehaviour {
         if (characterName == "T")
         {
             image.sprite = tippyFaces[4];
+        }
+        if (characterName == "M")
+        {
+            image.sprite = mallowFaces[4];
+        }
+        if (characterName == "R")
+        {
+            image.sprite = ribbonFaces[4];
+        }
+    }
+
+    public void Unnerved(string characterName)
+    {
+        if (characterName == "T")
+        {
+            image.sprite = tippyFaces[5];
+        }
+        if (characterName == "M")
+        {
+            image.sprite = mallowFaces[5];
+        }
+        if (characterName == "R")
+        {
+            image.sprite = ribbonFaces[5];
         }
     }
 

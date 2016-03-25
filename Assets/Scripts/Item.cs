@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Item : MonoBehaviour {
 
+    public Texture2D cursor;
+
     void Awake()
     {
     }

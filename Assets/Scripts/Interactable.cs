@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public Interaction[] insults;
     public Interaction[] usies;
     public Interaction[] gimmies;
+    public Interaction[] itemInteractions;
 
     public bool isItem;
     TextBoxManager theTextBox;    
@@ -52,6 +53,14 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
                 Use();
             }
         }
+        else if (GameMaster.instance.actionState == GameMaster.ActionState.Item)
+        {
+            GameMaster.SetCursorDefault();
+            if (!theTextBox.isActive || (theTextBox.isActive && theTextBox.itemMode))
+            {
+                ItemUsedOn();
+            }
+        }
     }
 
     void PerformInteractionFromPool(Interaction[] interactionSet)
@@ -64,6 +73,11 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
                 break;
             }
         }
+    }
+
+    void ItemUsedOn()
+    {
+        PerformInteractionFromPool(itemInteractions);
     }
 
     void Looky()
@@ -87,8 +101,24 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     void Use()
     {
         Debug.Log("use!");
-        PerformInteractionFromPool(usies);
+        if (!isItem)
+        {
+            PerformInteractionFromPool(usies);
+        }
+        else
+        {
+            RegisterItemAsUse();
+            Cursor.SetCursor(item.cursor, Vector2.zero, CursorMode.Auto);
+            theTextBox.StartDisableTextBox();
+        }
+        
 
+    }
+
+    void RegisterItemAsUse()
+    {
+        GameMaster.instance.actionState = GameMaster.ActionState.Item;
+        GameMaster.instance.itemUse = item.name;
     }
 
 

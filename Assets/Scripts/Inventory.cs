@@ -60,10 +60,11 @@ public class Inventory : MonoBehaviour {
     {
         foreach(Item i in items)
         {
-            if (i.name == itemName)
+            if (i.GetName() == itemName)
             {
                 items.Remove(i);
                 Destroy(i.gameObject);
+                return;
             }
         }
     }

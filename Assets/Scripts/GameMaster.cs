@@ -13,11 +13,18 @@ public class GameMaster : MonoBehaviour {
         Looky, Insult, Use, Gimme, Move, Item
     }
 
+    public string itemUse;
+
     public ActionState actionState;
 
     void Awake() {
         instance = this;
         switches = new Dictionary<string, bool>();
+    }
+
+    public static void SetCursorDefault()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); 
     }
 
     public static bool GetSwitch(string key)

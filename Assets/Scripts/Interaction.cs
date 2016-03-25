@@ -33,6 +33,14 @@ public class Interaction
 
     public bool GetInteractionValidity()
     {
+
+        if (itemCause != "")
+        {
+            if (itemCause != GameMaster.instance.itemUse || GameMaster.instance.actionState != GameMaster.ActionState.Item)
+            {
+                return false;
+            }
+        }
         
         if (oneOffCompleted)
         {
