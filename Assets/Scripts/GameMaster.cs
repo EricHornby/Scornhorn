@@ -17,6 +17,11 @@ public class GameMaster : MonoBehaviour {
 
     public ActionState actionState;
 
+    public Room activeRoom;
+    public List<Room> rooms = new List<Room>();
+
+    public GameObject roomsRoot;
+
     void Awake() {
         instance = this;
         switches = new Dictionary<string, bool>();
@@ -52,9 +57,42 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-	// Use this for initialization
-	void Start () {
+
+    public void SetRoomTo(string roomName)
+    {
+        Room newRoom = null;
+
+        foreach(Room r in rooms)
+        {
+            if (r.name == roomName)
+            {
+                newRoom = r;
+            }
+        }
+
+        if (newRoom != null)
+        {
+            activeRoom.gameObject.SetActive(false);
+            activeRoom.isActiveRoom = false;
+            activeRoom = newRoom;
+            activeRoom.gameObject.SetActive(true);
+        }
+
         
+
+
+    }
+
+    // Use this for initialization
+    void Start() {
+        foreach (Room r in roomsRoot.GetComponentsInChildren<Room>(true) )
+        {
+            rooms.Add(r);
+            if (r.isActiveRoom)
+            {
+                activeRoom = r;
+            }
+        }
 	}
 	
 	// Update is called once per frame

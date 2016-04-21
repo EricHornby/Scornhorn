@@ -22,6 +22,7 @@ public class Interaction
     public string[] switchOFF;
     public string[] itemGIVE;
     public string[] itemTAKE;
+    public string moveToRoom;
     //TODO: SFX Play? Animation or Screen effect Proc? Form Change for Curios? Use -> Activate "Use On Something Else" type event?
 
     public TextAsset[] texts;
@@ -107,7 +108,13 @@ public class Interaction
             oneOffCompleted = true;
         }
 
-        PrintText();
+        if (texts.Length != 0)
+         PrintText();    
+        if (moveToRoom != "")
+        {
+            GameMaster.instance.SetRoomTo(moveToRoom);
+        }
+       
     }
 
     public void PrintText()

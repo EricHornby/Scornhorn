@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
     public Interaction[] usies;
     public Interaction[] gimmies;
     public Interaction[] itemInteractions;
+    public Interaction[] moves;
 
     public bool isItem;
     TextBoxManager theTextBox;    
@@ -61,6 +62,14 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
                 ItemUsedOn();
             }
         }
+        else if (GameMaster.instance.actionState == GameMaster.ActionState.Move)
+        {
+            if (!theTextBox.isActive || (theTextBox.isActive && theTextBox.itemMode))
+            {
+                Move();
+            }
+        }
+
     }
 
     void PerformInteractionFromPool(Interaction[] interactionSet)
@@ -111,8 +120,12 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
             Cursor.SetCursor(item.cursor, Vector2.zero, CursorMode.Auto);
             theTextBox.StartDisableTextBox();
         }
-        
+    }
 
+    void Move()
+    {
+        Debug.Log("move!");
+        PerformInteractionFromPool(moves);
     }
 
     void RegisterItemAsUse()
