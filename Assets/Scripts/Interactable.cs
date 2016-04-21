@@ -74,7 +74,7 @@ public class Interactable : MonoBehaviour, IPointerClickHandler
 
     void PerformInteractionFromPool(Interaction[] interactionSet)
     {
-        for(int x = interactionSet.Length; x >= 0; x--)
+        for(int x = interactionSet.Length-1; x >= 0; x--)
         {
             if (interactionSet[x].GetInteractionValidity())
             {
